@@ -3,6 +3,7 @@
 #include "ZAxisFSM.h"
 #include "BoxPlatform.h"
 #include "ZAxisGameInstance.h"
+#include "GameCharacter.h"
 #include "ZAxisDisabledState.h"
 
 AZAxisDisabledState::AZAxisDisabledState()
@@ -28,6 +29,12 @@ void AZAxisDisabledState::OnEnter()
 		for (ABoxPlatform* box : Instance->GetZAxisFSM()->BoxPlatformArray)
 		{
 			box->SetZAxisEnabled(false);
+		}
+
+	if (Instance)
+		for (AGameCharacter* character : Instance->GetZAxisFSM()->GameCharacterArray)
+		{
+			character->DisableZAxis();
 		}
 }
 

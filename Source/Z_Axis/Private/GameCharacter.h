@@ -41,12 +41,13 @@ public:
 		m_IsZAxisEnabled = value;
 	}
 
+	virtual void EnableZAxis();
+	virtual void DisableZAxis();
+
 protected :
 
 	virtual void MoveForward(float input);
 	virtual void MoveRight(float input);
-	virtual void EnableZAxis();
-	virtual void DisableZAxis();
 
 	FVector m_MoveDirection;
 	bool m_IsZAxisEnabled;
