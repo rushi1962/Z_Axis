@@ -7,14 +7,15 @@
 #include "ZAxisDisabledState.h"
 #include "ZAxisEnabledState.h"
 #include "BoxPlatform.h"
+#include "GameCharacter.h"
 #include "ZAxisFSM.generated.h"
 
 UCLASS()
 class Z_AXIS_API AZAxisFSM : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AZAxisFSM();
 
@@ -35,6 +36,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "BoxPlatforms")
 		TArray<ABoxPlatform*> BoxPlatformArray;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GameCharacters")
+		TArray<AGameCharacter*> GameCharacterArray;
 
 	void ChangeStateTo(EZAxisStateEnum newState);
 
