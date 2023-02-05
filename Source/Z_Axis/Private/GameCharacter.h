@@ -22,7 +22,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Mesh)
 		UStaticMeshComponent* BodyMesh;
@@ -43,8 +43,9 @@ public:
 
 	virtual void EnableZAxis();
 	virtual void DisableZAxis();
+	virtual void KillCharacter();
 
-protected :
+protected:
 
 	virtual void MoveForward(float input);
 	virtual void MoveRight(float input);

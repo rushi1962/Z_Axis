@@ -26,6 +26,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = true))
 		UCameraComponent* Camera;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Player Alive Status")
+		bool IsPlayerAlive;
+
+	UFUNCTION(BlueprintImplementableEvent)
+		void ResetTheGame();
+
+	virtual void KillCharacter() override;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

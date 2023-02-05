@@ -64,3 +64,8 @@ void AGameCharacter::DisableZAxis()
 	m_IsZAxisEnabled = false;
 }
 
+void AGameCharacter::KillCharacter()
+{
+	
+}
+

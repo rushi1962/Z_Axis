@@ -20,6 +20,7 @@ public:
 
 private :
 	AZAxisFSM* ZAxisFSM;
+	AGameCharacter* MainPlayer;
 
 public :
 	FORCEINLINE void SetZAxisFSM(AZAxisFSM* fsm)
@@ -30,6 +31,11 @@ public :
 	FORCEINLINE AZAxisFSM* GetZAxisFSM()
 	{
 		return ZAxisFSM;
+	}
+
+	FORCEINLINE void SetMainPlayer(AGameCharacter* character)
+	{
+		MainPlayer = character;
 	}
 	
 };

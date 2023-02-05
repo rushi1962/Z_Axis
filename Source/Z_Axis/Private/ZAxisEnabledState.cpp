@@ -26,13 +26,13 @@ void AZAxisEnabledState::OnEnter()
 
 	UZAxisGameInstance* Instance = Cast<UZAxisGameInstance>(GetGameInstance());
 
-	if(Instance)
+	if (Instance)
 		for (ABoxPlatform* box : Instance->GetZAxisFSM()->BoxPlatformArray)
 		{
 			box->SetZAxisEnabled(true);
 		}
 
-	if(Instance)
+	if (Instance)
 		for (AGameCharacter* character : Instance->GetZAxisFSM()->GameCharacterArray)
 		{
 			character->EnableZAxis();

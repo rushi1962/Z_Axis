@@ -16,12 +16,18 @@ APlayerCharacter::APlayerCharacter()
 	Camera->bUsePawnControlRotation = true;
 
 	GetCharacterMovement()->AirControl = .2f;
+	IsPlayerAlive = true;
 }
 
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	m_CameraRotation = 0.f;
+	IsPlayerAlive = true;
+
+	UZAxisGameInstance* zAxisGameInstance = Cast<UZAxisGameInstance>(GetGameInstance());
+	if (zAxisGameInstance)
+		zAxisGameInstance->SetMainPlayer(this);
 }
 
 void APlayerCharacter::Tick(float DeltaTime)
@@ -94,4 +100,14 @@ void APlayerCharacter::MoveForward(float input)
 void APlayerCharacter::MoveRight(float input)
 {
 	Super::MoveRight(input);
+}
+
+void APlayerCharacter::KillCharacter()
+{
+	Super::KillCharacter();
+	if (IsPlayerAlive)
+	{
+		IsPlayerAlive = false;
+		ResetTheGame();
+	}
 }
