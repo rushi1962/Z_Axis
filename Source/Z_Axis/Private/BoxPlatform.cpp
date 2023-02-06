@@ -66,11 +66,12 @@ void ABoxPlatform::Tick(float DeltaTime)
 			{
 				for (FHitResult hitResult : hitResults)
 				{
-					APlayerCharacter* playerCharacter = Cast<APlayerCharacter>(hitResult.Actor);
-					if (playerCharacter && playerCharacter->IsAlive)
+					AGameCharacter* gameCharacter = Cast<AGameCharacter>(hitResult.Actor);
+					UZAxisGameInstance* gameInstance = Cast<UZAxisGameInstance>(GetGameInstance());
+					if (gameInstance->GetZAxisFSM()->CurrentState->ZAxisStateEnum == EZAxisStateEnum::ZAxisDisabled && gameCharacter && gameCharacter->IsAlive)
 					{
 						UE_LOG(LogTemp, Warning, TEXT("Player dead"));
-						playerCharacter->IsAlive = false;
+						gameCharacter->KillCharacter();
 					}
 				}
 			}
